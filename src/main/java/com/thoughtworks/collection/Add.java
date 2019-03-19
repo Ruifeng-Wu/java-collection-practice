@@ -26,19 +26,13 @@ public class Add {
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
-        List<Integer> list=new ArrayList<>(arrayList);
+        List<Integer> list = new ArrayList<>(arrayList);
         IntStream.range(0, list.size()).filter(i -> list.get(i) % 2 != 0).forEach(i -> list.set(i, list.get(i) * 3 + 2));
         return list;
     }
 
     public int getSumOfProcessedOdds(List<Integer> arrayList) {
-        int sum=0;
-        for (int x:arrayList) {
-            if (x%2!=0){
-                sum+=(x*3+5);
-            }
-        }
-        return sum;
+        return arrayList.stream().mapToInt(x -> x).filter(x -> x % 2 != 0).map(x -> (x * 3 + 5)).sum();
     }
 
     public double getMedianOfEven(List<Integer> arrayList) {

@@ -3,18 +3,14 @@ package com.thoughtworks.collection;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
         if (rightBorder<leftBorder){
             return getSumOfEvens(rightBorder,leftBorder);
         }
-        int sum=0;
-        for (int i = leftBorder; i <=rightBorder ; i++) {
-            if (i%2==0){
-                sum+=i;
-            }
-        }
+        int sum = IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 == 0).sum();
         return sum;
     }
 

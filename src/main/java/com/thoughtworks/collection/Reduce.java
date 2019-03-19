@@ -43,13 +43,7 @@ public class Reduce {
         if (this.arrayList.size() != arrayList.size()) {
             return false;
         }
-        for (int i = 0; i < this.arrayList.size(); i++) {
-            if (!this.arrayList.get(i).equals(arrayList.get(i))) {
-                return false;
-            }
-
-        }
-        return true;
+        return IntStream.range(0, this.arrayList.size()).allMatch(i -> this.arrayList.get(i).equals(arrayList.get(i)));
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {

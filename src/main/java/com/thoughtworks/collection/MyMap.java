@@ -44,7 +44,8 @@ public class MyMap {
     }
 
     public List<Integer> sortFromBig() {
-        throw new NotImplementedException();
+        array.sort((o1, o2) -> o1<o2?1:-1);
+        return array;
     }
 
     public List<Integer> sortFromSmall() {

@@ -43,7 +43,9 @@ public class Add {
     }
 
     public double getMedianOfEven(List<Integer> arrayList) {
-        return 0;
+        arrayList.sort((o1, o2) -> o1<02?o1:02);
+        int index=arrayList.size()/2;
+        return arrayList.get(index) % 2 == 0 ? arrayList.get(index) : (arrayList.get(index - 1) + arrayList.get(index + 1)) / 2;
     }
 
     public double getAverageOfEven(List<Integer> arrayList) {

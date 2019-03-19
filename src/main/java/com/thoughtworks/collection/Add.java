@@ -35,8 +35,16 @@ public class Add {
         return arrayList.stream().mapToInt(x -> x).filter(x -> x % 2 != 0).map(x -> (x * 3 + 5)).sum();
     }
 
+    public List<Integer> getProcessedList(List<Integer> arrayList) {
+        List<Integer> processedList=new ArrayList<>();
+        for (int i = 0; i <arrayList.size()-1 ; i++) {
+            processedList.add((arrayList.get(i)+arrayList.get(i+1))*3);
+        }
+        return processedList;
+    }
+
     public double getMedianOfEven(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return 0;
     }
 
     public double getAverageOfEven(List<Integer> arrayList) {
@@ -55,7 +63,5 @@ public class Add {
         throw new NotImplementedException();
     }
 
-    public List<Integer> getProcessedList(List<Integer> arrayList) {
-        throw new NotImplementedException();
-    }
+
 }

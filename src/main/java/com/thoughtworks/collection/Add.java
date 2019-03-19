@@ -7,15 +7,17 @@ import java.util.stream.IntStream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
-        if (rightBorder<leftBorder){
-            return getSumOfEvens(rightBorder,leftBorder);
+        if (rightBorder < leftBorder) {
+            return getSumOfEvens(rightBorder, leftBorder);
         }
-        int sum = IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 == 0).sum();
-        return sum;
+        return IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 == 0).sum();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
-        throw new NotImplementedException();
+        if (rightBorder < leftBorder) {
+            return getSumOfOdds(rightBorder, leftBorder);
+        }
+        return IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 != 0).sum();
     }
 
     public int getSumTripleAndAddTwo(List<Integer> arrayList) {

@@ -60,7 +60,8 @@ public class Add {
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        List<Integer> nonrepeatEvenList=arrayList.stream().filter(x->x%2==0).distinct().collect(Collectors.toList());
+        return nonrepeatEvenList;
     }
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {

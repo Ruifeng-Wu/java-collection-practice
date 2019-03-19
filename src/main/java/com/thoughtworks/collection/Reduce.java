@@ -52,9 +52,9 @@ public class Reduce {
 
     public int getLastOdd() {
         int lastOdd=0;
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i)%2!=0){
-                lastOdd=arrayList.get(i);
+        for (int element : arrayList) {
+            if (element % 2 != 0) {
+                lastOdd = element;
             }
         }
         return lastOdd;

@@ -21,11 +21,12 @@ public class Reduce {
     }
 
     public double getAverage() {
-        return arrayList.stream().mapToInt(x->x).average().getAsDouble();
+        return arrayList.stream().mapToInt(x -> x).average().getAsDouble();
     }
 
     public double getOrderedMedian() {
-        throw new NotImplementedException();
+        int index = arrayList.size() / 2;
+        return arrayList.size() % 2 == 0 ? (arrayList.get(index) + arrayList.get(index - 1)) / 2.0 : arrayList.get(index);
     }
 
     public int getFirstEven() {

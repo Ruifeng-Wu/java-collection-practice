@@ -4,6 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Add {
@@ -36,11 +37,9 @@ public class Add {
     }
 
     public List<Integer> getProcessedList(List<Integer> arrayList) {
-        List<Integer> processedList=new ArrayList<>();
-        for (int i = 0; i <arrayList.size()-1 ; i++) {
-            processedList.add((arrayList.get(i)+arrayList.get(i+1))*3);
-        }
-        return processedList;
+        return IntStream.range(0, arrayList.size() - 1)
+                .mapToObj(i -> (arrayList.get(i) + arrayList.get(i + 1)) * 3)
+                .collect(Collectors.toList());
     }
 
     public double getMedianOfEven(List<Integer> arrayList) {

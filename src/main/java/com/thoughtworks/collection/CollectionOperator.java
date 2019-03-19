@@ -2,21 +2,18 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class CollectionOperator {
     public List<Integer> getListByInterval(int left, int right) {
-        List<Integer> intervalList=new ArrayList<>();
+        List<Integer> intervalList;
         if (left<right){
-            intervalList = IntStream.rangeClosed(left, right).boxed().collect(Collectors.toList());
-        }
-        else {
-            for (int i = left; i >= right; i--) {
-                intervalList.add(i);
-            }
+            return IntStream.rangeClosed(left, right).boxed().collect(Collectors.toList());
+        }else {
+            intervalList=getListByInterval(right,left);
+            intervalList.sort((o1, o2) -> o1 < o2 ? 1 : -1);
         }
         return intervalList;
     }

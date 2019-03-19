@@ -30,7 +30,7 @@ public class Reduce {
     }
 
     public int getFirstEven() {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(x -> x % 2 == 0).findFirst().get();
     }
 
     public int getIndexOfFirstEven() {

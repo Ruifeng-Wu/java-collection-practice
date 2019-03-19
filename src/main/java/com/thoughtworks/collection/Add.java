@@ -1,8 +1,7 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -60,12 +59,24 @@ public class Add {
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-        return arrayList.stream().filter(x->x%2==0).distinct().collect(Collectors.toList());
+        return arrayList.stream().filter(x -> x % 2 == 0).distinct().collect(Collectors.toList());
     }
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        arrayList.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1 < o2) {
+                    if (o1 % 2 == 0) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                } else {
+                    return compare(o2, o1);
+                }
+            }
+        });
+        return arrayList;
     }
-
-
 }

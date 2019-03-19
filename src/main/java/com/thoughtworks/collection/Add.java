@@ -43,19 +43,20 @@ public class Add {
     }
 
     public double getMedianOfEven(List<Integer> arrayList) {
-        arrayList.sort((o1, o2) -> o1<02?o1:02);
-        int index=arrayList.size()/2;
+        arrayList.sort((o1, o2) -> o1 < 02 ? o1 : 02);
+        int index = arrayList.size() / 2;
         return arrayList.get(index) % 2 == 0 ? arrayList.get(index) : (arrayList.get(index - 1) + arrayList.get(index + 1)) / 2;
     }
 
     public double getAverageOfEven(List<Integer> arrayList) {
         int sum = arrayList.stream().mapToInt(x -> x).filter(x -> x % 2 == 0).sum();
         int count = (int) arrayList.stream().mapToInt(x -> x).filter(x -> x % 2 == 0).count();
-        return sum/count;
+        return sum / count;
     }
 
     public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
-        throw new NotImplementedException();
+        List<Integer> evenList = arrayList.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        return evenList.contains(specialElment);
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {

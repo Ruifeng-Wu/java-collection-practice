@@ -1,7 +1,5 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -61,6 +59,12 @@ public class Reduce {
     }
 
     public int getIndexOfLastOdd() {
-        throw new NotImplementedException();
+        int lastOddIndex=0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i) % 2 != 0) {
+                lastOddIndex=i;
+            }
+        }
+        return lastOddIndex;
     }
 }

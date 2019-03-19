@@ -10,18 +10,18 @@ public class Add {
         if (rightBorder < leftBorder) {
             return getSumOfEvens(rightBorder, leftBorder);
         }
-        return IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 == 0).sum();
+        return IntStream.rangeClosed(leftBorder, rightBorder).filter(x -> x % 2 == 0).sum();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
         if (rightBorder < leftBorder) {
             return getSumOfOdds(rightBorder, leftBorder);
         }
-        return IntStream.rangeClosed(leftBorder, rightBorder).filter(i -> i % 2 != 0).sum();
+        return IntStream.rangeClosed(leftBorder, rightBorder).filter(x -> x % 2 != 0).sum();
     }
 
     public int getSumTripleAndAddTwo(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().mapToInt(x -> x).map(x -> (x * 3 + 2)).sum();
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {

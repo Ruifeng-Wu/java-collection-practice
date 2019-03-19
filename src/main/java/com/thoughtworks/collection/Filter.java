@@ -1,16 +1,14 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Filter {
 
-    List<Integer>  array;
+    List<Integer> array;
 
     public Filter(List<Integer> array) {
-     this.array = array;
+        this.array = array;
     }
 
     public List<Integer> filterEven() {
@@ -22,10 +20,10 @@ public class Filter {
     }
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {
-        throw new NotImplementedException();
+        return null;
     }
 
     public List<Integer> getDifferentElements() {
-        throw new NotImplementedException();
+        return array.stream().distinct().collect(Collectors.toList());
     }
 }

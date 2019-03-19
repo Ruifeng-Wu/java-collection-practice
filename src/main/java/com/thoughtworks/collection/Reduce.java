@@ -47,11 +47,17 @@ public class Reduce {
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {
-        throw new NotImplementedException();
+        return 0.0;
     }
 
     public int getLastOdd() {
-        throw new NotImplementedException();
+        int lastOdd=0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i)%2!=0){
+                lastOdd=arrayList.get(i);
+            }
+        }
+        return lastOdd;
     }
 
     public int getIndexOfLastOdd() {

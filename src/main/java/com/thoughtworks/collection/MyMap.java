@@ -1,8 +1,9 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyMap {
@@ -28,15 +29,15 @@ public class MyMap {
     }
 
     public List<String> mapLetters() {
-        List<String> list = new ArrayList<>(Collections.nCopies(array.size(),""));
+        List<String> list = new ArrayList<>(Collections.nCopies(array.size(), ""));
         for (int i = 0; i < array.size(); i++) {
-            while (array.get(i)>0){
-                if (array.get(i)<27){
-                    list.set(i, list.get(i)+letterList.get(array.get(i)-1));
-                    array.set(i,0);
-                }else {
-                    list.set(i,letterList.get(0));
-                    array.set(i,array.get(i)-26);
+            while (array.get(i) > 0) {
+                if (array.get(i) < 27) {
+                    list.set(i, list.get(i) + letterList.get(array.get(i) - 1));
+                    array.set(i, 0);
+                } else {
+                    list.set(i, letterList.get(0));
+                    array.set(i, array.get(i) - 26);
                 }
             }
         }
@@ -44,11 +45,12 @@ public class MyMap {
     }
 
     public List<Integer> sortFromBig() {
-        array.sort((o1, o2) -> o1<o2?1:-1);
+        array.sort((o1, o2) -> o1 < o2 ? 1 : -1);
         return array;
     }
 
     public List<Integer> sortFromSmall() {
-        throw new NotImplementedException();
+        array.sort((o1, o2) -> o1 > o2 ? 1 : -1);
+        return array;
     }
 }

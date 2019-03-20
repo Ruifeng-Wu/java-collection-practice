@@ -45,12 +45,16 @@ public class Reduce {
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {
-        int index= arrayList.size() >> 1;
-        return ((int)singleLink.getNode(index)+(int)singleLink.getNode(index+1))/2.0;
+        int index = arrayList.size() / 2;
+        if (arrayList.size() % 2 == 0) {
+            return ((int) singleLink.getNode(index) + (int) singleLink.getNode(index + 1)) / 2.0;
+        } else {
+            return (int) singleLink.getNode(index + 1) / 1.0;
+        }
     }
 
     public int getLastOdd() {
-        int lastOdd=0;
+        int lastOdd = 0;
         for (int element : arrayList) {
             if (element % 2 != 0) {
                 lastOdd = element;
@@ -60,10 +64,10 @@ public class Reduce {
     }
 
     public int getIndexOfLastOdd() {
-        int lastOddIndex=0;
+        int lastOddIndex = 0;
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i) % 2 != 0) {
-                lastOddIndex=i;
+                lastOddIndex = i;
             }
         }
         return lastOddIndex;

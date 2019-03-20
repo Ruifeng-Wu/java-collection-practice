@@ -29,19 +29,16 @@ public class MyMap {
     }
 
     public List<String> mapLetters() {
-        List<String> list = new ArrayList<>(Collections.nCopies(array.size(), ""));
-        for (int i = 0; i < array.size(); i++) {
-            while (array.get(i) > 0) {
-                if (array.get(i) < 27) {
-                    list.set(i, list.get(i) + letterList.get(array.get(i) - 1));
-                    array.set(i, 0);
-                } else {
-                    list.set(i, letterList.get(0));
-                    array.set(i, array.get(i) - 26);
-                }
+        int lettersNum = letterList.size();
+        List<String> lettersMapList = new ArrayList<>(Collections.nCopies(array.size(), ""));
+        for (int index = 0; index < array.size(); index++) {
+            int temp = array.get(index);
+            while (temp != 0) {
+                lettersMapList.set(index, letterList.get((temp + lettersNum - 1) % lettersNum) + lettersMapList.get(index));
+                temp = (temp - 1) / lettersNum;
             }
         }
-        return list;
+        return lettersMapList;
     }
 
     public List<Integer> sortFromBig() {

@@ -25,11 +25,11 @@ public class Reduce {
 
     public double getOrderedMedian() {
         int index = arrayList.size() / 2;
-        return arrayList.size() % 2 == 0 ? (arrayList.get(index) + arrayList.get(index - 1)) / 2.0 : arrayList.get(index);
+        return isEven(arrayList.size()) ? (arrayList.get(index) + arrayList.get(index - 1)) / 2.0 : arrayList.get(index);
     }
 
     public int getFirstEven() {
-        return arrayList.stream().filter(x -> x % 2 == 0).findFirst().get();
+        return arrayList.stream().filter(x -> isEven(x)).findFirst().get();
     }
 
     public int getIndexOfFirstEven() {
@@ -46,7 +46,7 @@ public class Reduce {
 
     public Double getMedianInLinkList(SingleLink singleLink) {
         int index = arrayList.size() / 2;
-        if (arrayList.size() % 2 == 0) {
+        if (isEven(arrayList.size())) {
             return ((int) singleLink.getNode(index) + (int) singleLink.getNode(index + 1)) / 2.0;
         } else {
             return (int) singleLink.getNode(index + 1) / 1.0;
@@ -56,7 +56,7 @@ public class Reduce {
     public int getLastOdd() {
         int lastOdd = 0;
         for (int element : arrayList) {
-            if (element % 2 != 0) {
+            if (!isEven(element)) {
                 lastOdd = element;
             }
         }
@@ -66,10 +66,18 @@ public class Reduce {
     public int getIndexOfLastOdd() {
         int lastOddIndex = 0;
         for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i) % 2 != 0) {
+            if (!isEven(arrayList.get(i))) {
                 lastOddIndex = i;
             }
         }
         return lastOddIndex;
+    }
+
+    public boolean isEven(int i) {
+        if (i % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
